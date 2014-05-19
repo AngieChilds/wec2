@@ -1,0 +1,15 @@
+<li>
+  <%= gravatar_for user, size: 52 %>
+  <%= link_to user.name, user %>
+  <% if current_user.admin? && !current_user?(user) %>
+    <%= user.email %>
+    <%= user.admin %>
+    <%= link_to 'Change admin rights', more_user_path(user), method: :patch,
+                                  data: { confirm: "You sure this must be admin?" }%>
+   <%= link_to 'X', user, method: :delete,
+      data: { confirm: "You sure you want to remove user?" } %>
+  
+  
+  
+  <% end %>
+</li>
