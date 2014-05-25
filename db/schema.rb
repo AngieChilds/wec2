@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140519200816) do
+ActiveRecord::Schema.define(version: 20140525001251) do
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -25,5 +25,18 @@ ActiveRecord::Schema.define(version: 20140519200816) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+
+  create_table "webinars", force: true do |t|
+    t.string   "title"
+    t.text     "overview"
+    t.datetime "date"
+    t.integer  "duration"
+    t.string   "presenter"
+    t.text     "presinfo"
+    t.integer  "cost"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "url"
+  end
 
 end

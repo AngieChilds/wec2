@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 #ruby-gemset=railstutorial_rails_4_0
-
+gem 'ayah_integration'
 gem 'rails', '4.0.5'
-gem 'bootstrap-sass', '2.3.2.0'
-gem 'sprockets', '2.11.0'
+gem 'bootstrap-sass'
+gem 'sprockets'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'thin'
 gem 'will_paginate', '3.0.4'

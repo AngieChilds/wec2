@@ -1,4 +1,6 @@
 Wec2::Application.routes.draw do
+  resources :webinars
+
  resources :users do
    member do
      patch 'more'
