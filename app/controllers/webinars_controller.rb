@@ -6,7 +6,9 @@ class WebinarsController < ApplicationController
   def index
     @webinars = Webinar.all
   end
-
+def first
+  @webinars = Webinar.first
+end
   # GET /webinars/1
   # GET /webinars/1.json
   def show

@@ -1,0 +1,48 @@
+
+<table>
+  
+  <tbody>
+     <% @webinars.each do |webinar| %>
+      <p><h2><%= webinar.title %></h2></p>
+<p><h2>by: <%= webinar.presenter %></h2></p>      
+  <p>This webinar will take <%= webinar.duration %> minutes and you can listen to it from the comfort of your office. You do not need to fight the
+traffic, parking is not a problem and all you need is your computer, a good internet connection, a comfortable chair
+and a good cup of coffee. A CPD certificate will be sent to you after the webinar.</p>
+      
+ <p><h2> Register NOW</h2></p>
+<p><h2>ONLY 100 ATTENDEE SEATS AVAILABLE</h2></p>
+<p><h2>Please forward to those who you think would benefit from the training</h2></p>
+  
+  
+     <p><%= webinar.overview %></p>
+     <p><%= webinar.presinfo %></p>
+     
+       <p>Date: <%= webinar.date %></p>
+        <p>Cost: <%= webinar.cost %></p>
+        <p>Presenter: <%= webinar.presenter %></p>
+        
+        <p>How to register:</p>
+        <p> Click on:</p>
+<p>1. Complete the registration form:<%= link_to webinar["url"], webinar["url"] %></p>
+<p>2. Send us your proof of payment</p>
+<p>3. Receive your joining link</p>
+<p>4. Join the webinar 20 minutes before the start and first timers 30 minutes before</p>
+<p>PLEASE NOTE THE NEW ACCOUNT NUMBER DETAILS</p>
+<p>Banking Details: Webinar Executive Coaching</p>
+<p>FNB Brakpan: (250542)</p>
+<p>Cheque Account number: 62-446-590-706</p>
+      
+     
+        
+        <td><%= link_to 'Show', webinar %></td>
+        <td><%= link_to 'Edit', edit_webinar_path(webinar) %></td>
+        <td><%= link_to 'Destroy', webinar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr> 
+       
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Webinar', new_webinar_path %>
