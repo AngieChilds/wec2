@@ -2,7 +2,7 @@
 <table>
   
   <tbody>
-     <%= @webinars.each do |webinar| %>
+     <%= first_web(@webinar) %>
       <p><h2><%= webinar.title %></h2></p>
 <p><h2>by: <%= webinar.presenter %></h2></p>      
   <p>This webinar will take <%= webinar.duration %> minutes and you can listen to it from the comfort of your office. You do not need to fight the
@@ -38,7 +38,7 @@ and a good cup of coffee. A CPD certificate will be sent to you after the webina
         <td><%= link_to 'Edit', edit_webinar_path(webinar) %></td>
         <td><%= link_to 'Destroy', webinar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr> 
-       <% end %>
+       
   </tbody>
 </table>
 
