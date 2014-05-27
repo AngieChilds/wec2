@@ -2,7 +2,7 @@
 <table>
   
   <tbody>
-     <%= render 'first' %>
+     <%= @webinars = Webinar.first %>
       <p><h2><%= webinar.title %></h2></p>
 <p><h2>by: <%= webinar.presenter %></h2></p>      
   <p>This webinar will take <%= webinar.duration %> minutes and you can listen to it from the comfort of your office. You do not need to fight the
