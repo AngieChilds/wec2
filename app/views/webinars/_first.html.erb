@@ -1,47 +1,42 @@
-
-<table>
-  
-  <tbody>
-     <%= first_web(@webinar) %>
-      <p><h2><%= webinar.title %></h2></p>
-<p><h2>by: <%= webinar.presenter %></h2></p>      
-  <p>This webinar will take <%= webinar.duration %> minutes and you can listen to it from the comfort of your office. You do not need to fight the
+<div>
+    
+      <p><h2><%= @first_webinar.title %></h2></p>
+<p><h2>by: <%= @first_webinar.presenter %></h2></p>      
+  <p>This webinar will take <%= @first_webinar.duration %> minutes and you can listen to it from the comfort of your office. You do not need to fight the
 traffic, parking is not a problem and all you need is your computer, a good internet connection, a comfortable chair
 and a good cup of coffee. A CPD certificate will be sent to you after the webinar.</p>
       
  <p><h2> Register NOW</h2></p>
 <p><h2>ONLY 100 ATTENDEE SEATS AVAILABLE</h2></p>
-<p><h2>Please forward to those who you think would benefit from the training</h2></p>
+<p><h2>Please forward to those who you think would benefit from the training</h2
   
-  
-     <p><%= webinar.overview %></p>
-     <p><%= webinar.presinfo %></p>
+     <p><%= @first_webinar.overview %></p>
+     <p><%= @first_webinar.presinfo %></p>
      
-       <p>Date: <%= webinar.date %></p>
-        <p>Cost: <%= webinar.cost %></p>
-        <p>Presenter: <%= webinar.presenter %></p>
-        
-        <p>How to register:</p>
-        <p> Click on:</p>
-<p>1. Complete the registration form:<%= link_to webinar["url"], webinar["url"] %></p>
-<p>2. Send us your proof of payment</p>
-<p>3. Receive your joining link</p>
-<p>4. Join the webinar 20 minutes before the start and first timers 30 minutes before</p>
-<p>PLEASE NOTE THE NEW ACCOUNT NUMBER DETAILS</p>
-<p>Banking Details: Webinar Executive Coaching</p>
-<p>FNB Brakpan: (250542)</p>
-<p>Cheque Account number: 62-446-590-706</p>
+       <p>Date: <%= @first_webinar.date %></p>
+        <p>Cost: <%= @first_webinar.cost %></p>
+        <p>Presenter: <%= @first_webinar.presenter %></p>
+        <ul>
+        <li>How to register:</li>
+        <li> Click on:</li>
+        </ul>
+</ol>
+<li>1. Complete the registration form:<%= link_to @first_webinar["url"], @first_webinar["url"] %></li>
+<li>2. Send us your proof of payment</li>
+<li>3. Receive your joining link</li>
+<li>4. Join the webinar 20 minutes before the start and first timers 30 minutes before</li>
+<li>PLEASE NOTE THE NEW ACCOUNT NUMBER DETAILS</li>
+<li>Banking Details: Webinar Executive Coaching</li>
+<li>FNB Brakpan: (250542)</li>
+<li>Cheque Account number: 62-446-590-706</li>
       
-     
-        
-        <td><%= link_to 'Show', webinar %></td>
-        <td><%= link_to 'Edit', edit_webinar_path(webinar) %></td>
-        <td><%= link_to 'Destroy', webinar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr> 
-       
-  </tbody>
-</table>
+</ol>
+        <% if current_user && current_user.admin? %>
+        <%= link_to 'Show', @first_webinar %>
+       <%= link_to 'Edit', edit_webinar_path(@first_webinar) %>
+        <%= link_to 'Destroy', @first_webinar, method: :delete, data: { confirm: 'Are you sure?' } %>       
+      <%= link_to 'New Webinar', new_webinar_path %>
+<% end %>
+</div>
 
-<br>
 
-<%= link_to 'New Webinar', new_webinar_path %>

@@ -1,5 +1,9 @@
 Wec2::Application.routes.draw do
-  resources :webinars
+  resources :webinars do
+    collection do
+      get 'first'
+    end
+  end
 
  resources :users do
    member do

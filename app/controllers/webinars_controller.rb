@@ -1,17 +1,22 @@
 class WebinarsController < ApplicationController
-  before_action :set_webinar, only: [:show, :edit, :update, :destroy]
+#  before_action :set_webinar, only: [:show, :edit, :update, :destroy]
 
   # GET /webinars
   # GET /webinars.json
   def index
-    @webinars = Webinar.all
+    @webinars = Webinar.all.order("date")
+    @first_webinar = @webinars.shift
   end
-def first
-  @webinars = Webinar.first
-end
+  def first
+    
+   @webinar = Webinar.first
+   
+    
+  end
   # GET /webinars/1
   # GET /webinars/1.json
   def show
+    @webinar = Webinar.find(params[:id])
   end
 
   # GET /webinars/new
@@ -21,6 +26,7 @@ end
 
   # GET /webinars/1/edit
   def edit
+    @webinar = Webinar.find(params[:id])
   end
 
   # POST /webinars
@@ -42,6 +48,7 @@ end
   # PATCH/PUT /webinars/1
   # PATCH/PUT /webinars/1.json
   def update
+    @webinar = Webinar.find(params[:id])
     respond_to do |format|
       if @webinar.update(webinar_params)
         format.html { redirect_to @webinar, notice: 'Webinar was successfully updated.' }
@@ -56,6 +63,7 @@ end
   # DELETE /webinars/1
   # DELETE /webinars/1.json
   def destroy
+    @webinar = Webinar.find(params[:id])
     @webinar.destroy
     respond_to do |format|
       format.html { redirect_to webinars_url }
